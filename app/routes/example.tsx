@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Example } from "../features/example/example";
+import { withContainer } from "~/components/withContainer";
 
 const title = "React Example";
 
@@ -14,6 +15,8 @@ export const handle = {
   title,
 };
 
+const ExampleWithContainer = withContainer(Example);
+
 export default function ExampleRoute() {
-  return <Example />;
+  return <ExampleWithContainer />;
 }

@@ -1,9 +1,11 @@
+import { Preview } from "~/components/Preview";
+
 export function Example() {
+  const output = { message: "Welcome to React Example!" };
+
   return (
-    <div className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <p>Welcome to React Example!</p>
-      </div>
-    </div>
+    <Preview name="Tree Component" output={JSON.stringify(output, null, 2)}>
+      <p>Welcome to React Example!</p>
+    </Preview>
   );
 }
