@@ -1,16 +1,16 @@
 import { NavLink } from "react-router";
-import { features } from "~/features/registry";
+import type { Nav } from "~/consts/registry";
 
-export const Navigation = () => {
+export const Navigation = ({ navs }: { navs: Nav[] }) => {
   return (
     <nav className="h-screen w-56 shrink-0 overflow-y-auto bg-gray-200 p-4 md:w-64">
       <h2 className="text-lg font-bold mb-4">Navigation</h2>
       <ul className="list-none">
-        {features.map((feature) => (
-          <li key={feature.id} className="mb-2">
+        {navs.map((nav) => (
+          <li key={nav.id} className="mb-2">
             <NavLink
-              to={feature.path}
-              end={feature.path === "/"}
+              to={nav.path}
+              end={nav.path === "/"}
               className={({ isActive }) =>
                 `block rounded px-3 py-2 ${
                   isActive
@@ -19,7 +19,7 @@ export const Navigation = () => {
                 }`
               }
             >
-              {feature.label}
+              {nav.label}
             </NavLink>
           </li>
         ))}

@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { Toc } from "~/features/toc/toc";
+import { Toc } from "~/components/Toc";
 
 const title = "Master React";
 

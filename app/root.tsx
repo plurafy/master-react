@@ -10,7 +10,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "~/components/Navigation";
+import { navs } from "~/consts/registry";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -39,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-screen">
         <div className="flex h-screen overflow-hidden">
-          <Navigation />
+          <Navigation navs={navs} />
           <main className="min-w-0 flex-1 overflow-y-auto">
             {handle?.title && (
               <header className="flex flex-col gap-9 items-center">

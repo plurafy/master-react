@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { data } from "./data";
+import { data } from "~/consts/tree-data";
 import { TreeNode } from "~/components/TreeNode";
 import { getAllSelectedNodes, getSelectedParentNodes } from "~/utils/tree";
 import { Preview } from "~/components/Preview";
