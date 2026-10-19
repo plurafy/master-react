@@ -5,4 +5,5 @@ export default [
   route("/example", "routes/example.tsx"),
   route("/tree", "routes/tree.tsx"),
   route("/virtual-list", "routes/virtual-list.tsx"),
+  route("/counter", "routes/counter.tsx"),
 ] satisfies RouteConfig;
