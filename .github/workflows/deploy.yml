@@ -7,15 +7,13 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,21 +31,27 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: SPA fallback for deep links
-        run: cp build/client/index.html build/client/404.html
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Checkout plurafy site repo
+        uses: actions/checkout@v4
         with:
-          path: build/client
+          repository: plurafy/plurafy
+          token: ${{ secrets.DEPLOY_PAT }}
+          path: site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Copy build to /master-react
+        run: |
+          mkdir -p site/master-react
+          rsync -a --delete build/client/ site/master-react/
+
+      - name: Commit and push
+        working-directory: site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add master-react
+          if git diff --cached --quiet; then
+            echo "No changes to deploy"
+          else
+            git commit -m "Deploy master-react from ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
+            git push
+          fi
