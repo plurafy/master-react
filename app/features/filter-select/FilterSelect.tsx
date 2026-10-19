@@ -27,7 +27,7 @@ export const FilterSelect = ({
       setSelectedOptions([optionId]);
     }
 
-    if (!e.metaKey) {
+    if (!e.metaKey && !e.ctrlKey) {
       setShowList(false);
     }
   };
@@ -50,7 +50,11 @@ export const FilterSelect = ({
 
   return (
     <div id={id} className="select-container">
+      <label htmlFor={`filter-${id}`} className="select-label">
+        {multiple ? "Multiple" : "Single"} Select
+      </label>
       <input
+        id={`filter-${id}`}
         type="text"
         className="select-filter"
         placeholder="Filter options..."

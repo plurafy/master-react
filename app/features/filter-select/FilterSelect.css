@@ -3,6 +3,12 @@
     flex-direction: column;
     gap: 8px;
 }
+
+.select-label {
+    font-weight: bold;
+    color: #333;
+}
+
 .select-filter {
     width: 100%;
     padding: 4px 8px;
