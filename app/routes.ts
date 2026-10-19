@@ -6,4 +6,5 @@ export default [
   route("/virtual-list", "routes/virtual-list.tsx"),
   route("/accordion", "routes/accordion.tsx"),
   route("/counter", "routes/counter.tsx"),
+  route("/filter-select", "routes/filter-select.tsx"),
 ] satisfies RouteConfig;

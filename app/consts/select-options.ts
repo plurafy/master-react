@@ -1,0 +1,16 @@
+export const selectOptions = [
+  { id: "apple", label: "Apple" },
+  { id: "banana", label: "Banana" },
+  { id: "blueberry", label: "Blueberry" },
+  { id: "cherry", label: "Cherry" },
+  { id: "grapes", label: "Grapes" },
+  { id: "mango", label: "Mango" },
+  { id: "orange", label: "Orange" },
+  { id: "pineapple", label: "Pineapple" },
+  { id: "strawberry", label: "Strawberry" },
+  { id: "watermelon", label: "Watermelon" },
+  { id: "kiwi", label: "Kiwi" },
+  { id: "peach", label: "Peach" },
+  { id: "plum", label: "Plum" },
+  { id: "pear", label: "Pear" },
+] as const;
