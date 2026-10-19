@@ -6,7 +6,6 @@ export type Nav = {
 
 export const navs = [
   { id: "home", label: "Home", path: "/" },
-  { id: "example", label: "Example", path: "/example" },
   { id: "accordion", label: "Accordion", path: "/accordion" },
   { id: "counter", label: "Counter", path: "/counter" },
   { id: "tree", label: "Tree", path: "/tree" },
